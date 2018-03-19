@@ -1,6 +1,6 @@
-# Default NAMESPACE created by R
 # Remove the previous line if you edit this file
-
+S3method(print,cotrend)
+S3method(cotrend,default)
 # Export all names
 exportPattern(".")
 
@@ -8,3 +8,4 @@ exportPattern(".")
 import(
   xts
 )
+importFrom("stats", "rnorm")

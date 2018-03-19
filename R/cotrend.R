@@ -5,9 +5,10 @@
 #  Implements paper by Guo and Shintani
 #  Version 1.0
 #Sept,2011
+#March,2018: Minor edit to pass R check
 ###############################################
 
-library("xts")
+require("xts")
 
 cotrend<-function(x,...) UseMethod("cotrend")
 
@@ -15,7 +16,7 @@ cotrend.default <- function(x,type=c("paired","joint"),CT="BIC",...){
   # x: matrix with distinct cols per timeseries.
   
   if(is.xts(x)){
-    X <- coredata(x)
+    X <- xts::xcoredata(x)
   }else{
     X <- as.matrix(x)
   }
