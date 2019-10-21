@@ -129,8 +129,12 @@ VN12 <- function(r1,r2,lambda,m,T,type=c("BIC","HQ")){
   if(r1==0 & r2==0) return(0)
   if(r1==0){s1<-0}else{s1 <- -sqrt(T)*sum(lambda[1:r1])}
   if(r2==0){s2<-0}else{
+    if((r1+1)<=r2){
       s2 <- -sum(lambda[(r1+1):r2])
+    }else{
+      s2 <- 0
     }
+  }
   
   ct <- sqrt(T)*CT(T,type[1])
   f1 <- fr(r1,m)*ct/T
